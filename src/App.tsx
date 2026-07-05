@@ -44,10 +44,10 @@ export default function App() {
         <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div>
             <p className="text-sm font-bold text-indigo-700">오늘의 생활안전 예보</p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">오늘 어디가 위험하고, 왜 위험하고, 뭘 해야 하는지</h2>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">오늘 위험한 곳과 대응 조치</h2>
           </div>
           <p className="max-w-xl text-sm leading-6 text-slate-600">
-            민원 발생 후 처리하는 행정을 넘어, AI가 위험 징후를 먼저 포착하고 부서별 조치까지 추천합니다.
+            AI가 위험 징후, 판단 근거, 부서별 우선 조치를 한 번에 정리합니다.
           </p>
         </div>
 
