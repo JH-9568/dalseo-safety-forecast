@@ -11,7 +11,7 @@ export function DepartmentBoard() {
     <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
       <div className="mb-8 flex flex-col justify-between gap-3 md:flex-row md:items-end">
         <div>
-          <p className="text-sm font-bold text-indigo-700">Department Response Board</p>
+          <p className="text-sm font-bold text-indigo-700">부서 대응 보드</p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">부서별 오늘의 선제 대응</h2>
         </div>
         <p className="max-w-xl text-sm leading-6 text-slate-600">AI가 위험 예보를 담당 분야별 업무 후보로 정리해 현장 대응 우선순위를 빠르게 공유합니다.</p>

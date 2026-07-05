@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { DataFlow } from './components/DataFlow';
 import { DashboardSummary } from './components/DashboardSummary';
 import { DepartmentBoard } from './components/DepartmentBoard';
@@ -21,6 +21,12 @@ export default function App() {
     return sortByRisk(filtered);
   }, [selectedType]);
 
+  useEffect(() => {
+    if (!filteredForecasts.some((forecast) => forecast.id === selectedRisk.id)) {
+      setSelectedRisk(filteredForecasts[0]);
+    }
+  }, [filteredForecasts, selectedRisk.id]);
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <Hero />
@@ -29,7 +35,7 @@ export default function App() {
       <section id="dashboard" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="mb-8 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
           <div>
-            <p className="text-sm font-bold text-indigo-700">Today Safety Forecast</p>
+            <p className="text-sm font-bold text-indigo-700">오늘의 생활안전 예보</p>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">오늘 어디가 위험하고, 왜 위험하고, 뭘 해야 하는지</h2>
           </div>
           <p className="max-w-xl text-sm leading-6 text-slate-600">

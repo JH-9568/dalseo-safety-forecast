@@ -7,7 +7,7 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-white/80 px-3 py-1 text-sm font-semibold text-indigo-700 shadow-sm">
-            <Sparkles className="h-4 w-4" /> Civic AI Forecast Dashboard
+            <Sparkles className="h-4 w-4" /> 생활안전 AI 예보 대시보드
           </div>
           <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-slate-950 sm:text-6xl">
             달서 AI 생활안전 예보관
