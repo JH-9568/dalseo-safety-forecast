@@ -16,3 +16,9 @@ body {
   min-width: 320px;
   background: #f8fafc;
 }
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
