@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { DataFlow } from './components/DataFlow';
 import { DashboardSummary } from './components/DashboardSummary';
 import { DepartmentBoard } from './components/DepartmentBoard';
@@ -15,6 +15,7 @@ import { sortByRisk } from './lib/riskScoring';
 export default function App() {
   const [selectedType, setSelectedType] = useState<'전체' | RiskType>('전체');
   const [selectedRisk, setSelectedRisk] = useState(riskForecasts[0]);
+  const detailPanelRef = useRef<HTMLDivElement>(null);
 
   const filteredForecasts = useMemo(() => {
     const filtered = selectedType === '전체' ? riskForecasts : riskForecasts.filter((forecast) => forecast.type === selectedType);
@@ -26,6 +27,13 @@ export default function App() {
       setSelectedRisk(filteredForecasts[0]);
     }
   }, [filteredForecasts, selectedRisk.id]);
+
+  const handleRiskSelect = (forecast: typeof selectedRisk) => {
+    setSelectedRisk(forecast);
+    window.requestAnimationFrame(() => {
+      detailPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  };
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
@@ -56,11 +64,13 @@ export default function App() {
                 key={forecast.id}
                 forecast={forecast}
                 selected={forecast.id === selectedRisk.id}
-                onSelect={setSelectedRisk}
+                onSelect={handleRiskSelect}
               />
             ))}
           </div>
-          <RiskDetailPanel forecast={selectedRisk} />
+          <div ref={detailPanelRef} className="scroll-mt-6">
+            <RiskDetailPanel forecast={selectedRisk} />
+          </div>
         </div>
       </section>
 
@@ -70,4 +80,3 @@ export default function App() {
     </main>
   );
 }
-
