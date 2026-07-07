@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { AiPipelineHighlights } from './components/AiPipelineHighlights';
 import { DataFlow } from './components/DataFlow';
 import { DashboardSummary } from './components/DashboardSummary';
 import { DepartmentBoard } from './components/DepartmentBoard';
 import { FeatureCards } from './components/FeatureCards';
 import { FooterNotice } from './components/FooterNotice';
 import { Hero } from './components/Hero';
+import { PriorityForecast } from './components/PriorityForecast';
 import { RiskCard } from './components/RiskCard';
 import { RiskDetailPanel } from './components/RiskDetailPanel';
 import { RiskFilters } from './components/RiskFilters';
@@ -52,6 +54,8 @@ export default function App() {
         </div>
 
         <DashboardSummary />
+        <PriorityForecast forecasts={sortByRisk(riskForecasts)} onSelect={handleRiskSelect} />
+        <AiPipelineHighlights />
 
         <div className="mt-8">
           <RiskFilters selected={selectedType} onSelect={setSelectedType} />
